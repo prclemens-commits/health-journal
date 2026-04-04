@@ -19,7 +19,6 @@
   --green-l: #e4f5ee;
   --r: 18px;
   --r-sm: 12px;
-
   --cat-food: #e8763a;
   --cat-sleep: #4a7fc1;
   --cat-behavior: #c14a7f;
@@ -28,35 +27,24 @@
   --cat-meds: #4a9c8a;
 }
 @media(prefers-color-scheme:dark){:root{
-  --bg:#131210; --surface:#1c1b18; --surface2:#252420;
-  --border:rgba(255,255,255,0.07); --text:#f0ede8; --text2:#9a9890; --text3:#5a5855;
+  --bg:#131210;--surface:#1c1b18;--surface2:#252420;
+  --border:rgba(255,255,255,0.07);--text:#f0ede8;--text2:#9a9890;--text3:#5a5855;
   --green-l:#0d2e1e;
 }}
-
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);min-height:100vh;overscroll-behavior:none}
 
-/* SCREENS */
 .screen{display:none;min-height:100vh}
 .screen.active{display:flex;flex-direction:column}
 
-/* ── HOME SCREEN ── */
+/* HOME */
 #home{background:var(--bg)}
 .home-header{padding:calc(env(safe-area-inset-top,16px) + 16px) 20px 16px;display:flex;align-items:flex-start;justify-content:space-between}
 .home-greeting{font-size:13px;color:var(--text2);font-weight:600;letter-spacing:.03em}
 .home-title{font-size:26px;font-weight:800;color:var(--text);margin-top:2px;letter-spacing:-.4px}
 .streak-pill{background:var(--green-l);color:var(--green-d);font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;margin-top:4px}
-
 .home-body{flex:1;padding:0 16px 32px;display:flex;flex-direction:column;gap:12px}
-
-.cat-btn{
-  display:flex;align-items:center;gap:16px;
-  background:var(--surface);border:none;border-radius:var(--r);
-  padding:18px 20px;cursor:pointer;width:100%;text-align:left;
-  font-family:'Nunito',sans-serif;
-  transition:transform .12s;
-  position:relative;overflow:hidden;
-}
+.cat-btn{display:flex;align-items:center;gap:16px;background:var(--surface);border:none;border-radius:var(--r);padding:18px 20px;cursor:pointer;width:100%;text-align:left;font-family:'Nunito',sans-serif;transition:transform .12s;position:relative;overflow:hidden}
 .cat-btn:active{transform:scale(.97)}
 .cat-icon{font-size:28px;flex-shrink:0;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
 .cat-text{flex:1;min-width:0}
@@ -65,30 +53,23 @@ html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text)
 .cat-count{font-size:12px;font-weight:700;color:var(--text3);flex-shrink:0}
 .cat-accent{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:18px 0 0 18px}
 
-/* ── FORM SCREEN ── */
+/* FORM */
 #form-screen{background:var(--bg)}
-.form-header{
-  background:var(--surface);
-  padding:calc(env(safe-area-inset-top,0px) + 14px) 20px 14px;
-  display:flex;align-items:center;gap:12px;
-  border-bottom:0.5px solid var(--border);
-  position:sticky;top:0;z-index:50;
-}
+.form-header{background:var(--surface);padding:calc(env(safe-area-inset-top,0px) + 14px) 20px 14px;display:flex;align-items:center;gap:12px;border-bottom:0.5px solid var(--border);position:sticky;top:0;z-index:50}
 .back-btn{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text2);padding:0 4px;line-height:1;font-family:'Nunito',sans-serif}
 .form-cat-icon{font-size:22px;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .form-cat-name{font-size:16px;font-weight:800;color:var(--text)}
+.form-body{padding:20px 16px 40px;display:flex;flex-direction:column;gap:18px;max-width:520px;margin:0 auto;width:100%}
 
-.form-body{padding:20px 16px 40px;display:flex;flex-direction:column;gap:20px;max-width:520px;margin:0 auto;width:100%}
+/* Logger select */
+.logger-row{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:var(--r-sm);padding:12px 14px;border:0.5px solid var(--border)}
+.logger-label{font-size:12px;font-weight:700;color:var(--text3);white-space:nowrap}
+.logger-select{flex:1;background:none;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);outline:none;cursor:pointer;-webkit-appearance:none;appearance:none}
 
-/* Name row */
-.name-row{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:var(--r-sm);padding:12px 14px;border:0.5px solid var(--border)}
-.name-row-label{font-size:12px;font-weight:700;color:var(--text3);white-space:nowrap}
-.name-input{flex:1;background:none;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--text);outline:none}
-.name-input::placeholder{color:var(--text3)}
-
-/* Section */
+/* Sections */
 .form-section{}
 .section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:8px;padding-left:2px}
+.optional-tag{font-weight:400;text-transform:none;letter-spacing:0;font-size:10px}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:7px}
@@ -96,38 +77,53 @@ html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text)
 .chip.sel{color:#fff;border-color:transparent}
 .chip:active{transform:scale(.94)}
 
-/* Rating row */
+/* Rating */
 .rating-row{display:flex;gap:8px;justify-content:space-between}
 .rating-btn{flex:1;padding:10px 4px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--surface);font-size:20px;cursor:pointer;text-align:center;transition:all .12s;font-family:'Nunito',sans-serif}
 .rating-btn.sel{border-color:transparent}
 .rating-btn:active{transform:scale(.93)}
 
-/* Time row */
+/* Time */
 .time-row{display:grid;gap:10px}
 .time-row.single{grid-template-columns:1fr}
 .time-row.dual{grid-template-columns:1fr 1fr}
+.time-row.triple{grid-template-columns:1fr 1fr 1fr}
 .time-field{display:flex;flex-direction:column;gap:5px}
 .time-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--text3)}
 .time-input{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 13px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;color:var(--text);-webkit-appearance:none;appearance:none;width:100%}
 .time-input:focus{outline:none;border-color:var(--green)}
-
-/* Notes */
-.notes-input{width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:13px 14px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--text);min-height:80px;resize:none;-webkit-appearance:none}
+.text-input{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 13px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--text);-webkit-appearance:none;appearance:none;width:100%}
+.text-input:focus{outline:none;border-color:var(--green)}
+.text-input::placeholder{color:var(--text3);font-weight:600}
+.notes-input{width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:13px 14px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--text);min-height:80px;resize:none}
 .notes-input:focus{outline:none;border-color:var(--green)}
 .notes-input::placeholder{color:var(--text3);font-weight:600}
 
-/* Save button */
-.save-btn{
-  width:100%;padding:16px;background:var(--green);color:#fff;
-  border:none;border-radius:var(--r);font-size:16px;font-weight:800;
-  cursor:pointer;font-family:'Nunito',sans-serif;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:background .15s;letter-spacing:-.1px;
-}
+/* Pouch counter */
+.pouch-grid{display:flex;flex-direction:column;gap:8px}
+.pouch-row{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-radius:var(--r-sm);padding:10px 14px;border:0.5px solid var(--border)}
+.pouch-name{font-size:13px;font-weight:700;color:var(--text);flex:1}
+.pouch-controls{display:flex;align-items:center;gap:10px}
+.pouch-btn{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text2);line-height:1}
+.pouch-btn:active{transform:scale(.9)}
+.pouch-val{font-size:15px;font-weight:800;color:var(--text);min-width:28px;text-align:center}
+
+/* Sub-panel */
+.sub-panel{background:var(--surface2);border-radius:var(--r-sm);padding:14px;display:none;flex-direction:column;gap:12px;margin-top:4px}
+.sub-panel.open{display:flex}
+
+/* Oz input row */
+.oz-row{display:flex;align-items:center;gap:10px}
+.oz-input{width:80px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 12px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);text-align:center;-webkit-appearance:none}
+.oz-input:focus{outline:none;border-color:var(--green)}
+.oz-label{font-size:13px;font-weight:700;color:var(--text2)}
+
+/* Save */
+.save-btn{width:100%;padding:16px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;letter-spacing:-.1px}
 .save-btn:active{background:var(--green-d);transform:scale(.98)}
 .save-btn:disabled{background:var(--text3)}
 
-/* ── HISTORY SCREEN ── */
+/* HISTORY */
 #history-screen{background:var(--bg)}
 .hist-header{background:var(--surface);padding:calc(env(safe-area-inset-top,0px) + 14px) 20px 14px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:12px}
 .hist-title{font-size:18px;font-weight:800;color:var(--text)}
@@ -140,39 +136,30 @@ html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text)
 .hist-body2{flex:1;min-width:0}
 .hist-top{display:flex;align-items:baseline;gap:8px}
 .hist-cat{font-size:13px;font-weight:800;color:var(--text)}
-.hist-time{font-size:11px;color:var(--text3);margin-left:auto;font-weight:700;flex-shrink:0}
 .hist-sub{font-size:12px;color:var(--text2);margin-top:3px;font-weight:600;line-height:1.5}
 .hist-note{font-size:12px;color:var(--text3);margin-top:3px;font-style:italic;line-height:1.4}
 .hist-by{font-size:10px;color:var(--text3);margin-top:4px;font-weight:700}
 
 /* Bottom nav */
-.bottom-nav{
-  background:var(--surface);
-  border-top:0.5px solid var(--border);
-  display:flex;
-  padding:0 0 env(safe-area-inset-bottom,0);
-}
-.nav-btn{flex:1;padding:13px 8px 12px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Nunito',sans-serif;transition:opacity .1s}
+.bottom-nav{background:var(--surface);border-top:0.5px solid var(--border);display:flex;padding:0 0 env(safe-area-inset-bottom,0)}
+.nav-btn{flex:1;padding:13px 8px 12px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Nunito',sans-serif}
 .nav-btn-icon{font-size:20px;line-height:1}
 .nav-btn-label{font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.04em}
 .nav-btn.active .nav-btn-label{color:var(--green)}
 
-/* Toast */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--text);color:var(--bg);padding:10px 20px;border-radius:24px;font-size:13px;font-weight:700;opacity:0;transition:all .22s;pointer-events:none;z-index:999;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* Spinner */
 .spin{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .empty{text-align:center;padding:3rem 1rem;color:var(--text3);font-size:14px;font-weight:700;line-height:1.7}
+.divider{border:none;border-top:0.5px solid var(--border);margin:2px 0}
 </style>
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 
-<!-- ══════════ HOME SCREEN ══════════ -->
+<!-- ══ HOME ══ -->
 <div class="screen active" id="home">
   <div class="home-header">
     <div>
@@ -181,119 +168,63 @@ html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text)
       <div class="streak-pill" id="streak-el">Loading…</div>
     </div>
   </div>
-
-  <div class="home-body" id="cat-list">
-    <button class="cat-btn" onclick="openForm('food')" style="--c:var(--cat-food)">
+  <div class="home-body">
+    <button class="cat-btn" onclick="openForm('food')">
       <div class="cat-accent" style="background:var(--cat-food)"></div>
       <div class="cat-icon" style="background:#fef0e8">🥗</div>
-      <div class="cat-text">
-        <div class="cat-name">Food</div>
-        <div class="cat-hint">Meals, snacks, reactions</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Food</div><div class="cat-hint">Bottle, pouches, snacks</div></div>
       <div class="cat-count" id="cnt-food">–</div>
     </button>
-
-    <button class="cat-btn" onclick="openForm('sleep')" style="--c:var(--cat-sleep)">
+    <button class="cat-btn" onclick="openForm('sleep')">
       <div class="cat-accent" style="background:var(--cat-sleep)"></div>
       <div class="cat-icon" style="background:#eaf0fc">🌙</div>
-      <div class="cat-text">
-        <div class="cat-name">Sleep</div>
-        <div class="cat-hint">Bedtime, wake, quality</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Sleep</div><div class="cat-hint">Bedtime, duration, quality</div></div>
       <div class="cat-count" id="cnt-sleep">–</div>
     </button>
-
-    <button class="cat-btn" onclick="openForm('behavior')" style="--c:var(--cat-behavior)">
+    <button class="cat-btn" onclick="openForm('behavior')">
       <div class="cat-accent" style="background:var(--cat-behavior)"></div>
       <div class="cat-icon" style="background:#fceaf2">💛</div>
-      <div class="cat-text">
-        <div class="cat-name">Behavior & mood</div>
-        <div class="cat-hint">Energy, episodes, wins</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Behavior & mood</div><div class="cat-hint">Mood, behaviors, notes</div></div>
       <div class="cat-count" id="cnt-behavior">–</div>
     </button>
-
-    <button class="cat-btn" onclick="openForm('digestion')" style="--c:var(--cat-digestion)">
+    <button class="cat-btn" onclick="openForm('digestion')">
       <div class="cat-accent" style="background:var(--cat-digestion)"></div>
       <div class="cat-icon" style="background:#f5f0e4">🫁</div>
-      <div class="cat-text">
-        <div class="cat-name">Digestion & GI</div>
-        <div class="cat-hint">Comfort, output, symptoms</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Digestion & GI</div><div class="cat-hint">Output, consistency, enema</div></div>
       <div class="cat-count" id="cnt-digestion">–</div>
     </button>
-
-    <button class="cat-btn" onclick="openForm('therapy')" style="--c:var(--cat-therapy)">
+    <button class="cat-btn" onclick="openForm('therapy')">
       <div class="cat-accent" style="background:var(--cat-therapy)"></div>
       <div class="cat-icon" style="background:#eeeaf8">🤝</div>
-      <div class="cat-text">
-        <div class="cat-name">Therapy</div>
-        <div class="cat-hint">PT, OT, speech, ABA</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Therapy & School</div><div class="cat-hint">PT, OT, Speech, School…</div></div>
       <div class="cat-count" id="cnt-therapy">–</div>
     </button>
-
-    <button class="cat-btn" onclick="openForm('meds')" style="--c:var(--cat-meds)">
+    <button class="cat-btn" onclick="openForm('meds')">
       <div class="cat-accent" style="background:var(--cat-meds)"></div>
       <div class="cat-icon" style="background:#e4f4f2">💊</div>
-      <div class="cat-text">
-        <div class="cat-name">Meds & supplements</div>
-        <div class="cat-hint">Dose, timing, status</div>
-      </div>
+      <div class="cat-text"><div class="cat-name">Medication</div><div class="cat-hint">What, amount, time</div></div>
       <div class="cat-count" id="cnt-meds">–</div>
     </button>
   </div>
-
   <div class="bottom-nav">
-    <button class="nav-btn active" onclick="showScreen('home',this)">
-      <span class="nav-btn-icon">🏠</span>
-      <span class="nav-btn-label">Log</span>
-    </button>
-    <button class="nav-btn" onclick="showScreen('history-screen',this);loadHistory()">
-      <span class="nav-btn-icon">📋</span>
-      <span class="nav-btn-label">History</span>
-    </button>
+    <button class="nav-btn active" onclick="showScreen('home',this)"><span class="nav-btn-icon">🏠</span><span class="nav-btn-label">Log</span></button>
+    <button class="nav-btn" onclick="showScreen('history-screen',this);loadHistory()"><span class="nav-btn-icon">📋</span><span class="nav-btn-label">History</span></button>
   </div>
 </div>
 
-<!-- ══════════ FORM SCREEN ══════════ -->
+<!-- ══ FORM SCREEN ══ -->
 <div class="screen" id="form-screen">
   <div class="form-header">
     <button class="back-btn" onclick="showScreen('home',null)">←</button>
     <div class="form-cat-icon" id="form-icon"></div>
     <div class="form-cat-name" id="form-title"></div>
   </div>
-
   <div style="flex:1;overflow-y:auto">
-  <div class="form-body">
-
-    <!-- Who's logging -->
-    <div class="name-row">
-      <span class="name-row-label">Logging as</span>
-      <input class="name-input" id="logger-name" type="text" placeholder="Your name" autocomplete="name">
-    </div>
-
-    <!-- Date -->
-    <div class="form-section">
-      <div class="section-label">Date</div>
-      <input type="date" id="f-date" class="time-input" style="width:100%">
-    </div>
-
-    <!-- Dynamic form content injected here -->
-    <div id="form-fields"></div>
-
-    <!-- Notes -->
-    <div class="form-section">
-      <div class="section-label">Notes <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
-      <textarea class="notes-input" id="f-notes" placeholder="Anything worth noting…" rows="3"></textarea>
-    </div>
-
-    <button class="save-btn" id="save-btn" onclick="saveEntry()">Save entry</button>
-  </div>
+    <div class="form-body" id="form-body-inner"></div>
   </div>
 </div>
 
-<!-- ══════════ HISTORY SCREEN ══════════ -->
+<!-- ══ HISTORY SCREEN ══ -->
 <div class="screen" id="history-screen">
   <div class="hist-header">
     <button class="back-btn" onclick="showScreen('home',null)">←</button>
@@ -306,281 +237,455 @@ html,body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text)
       <button class="chip" onclick="filterHist('Sleep',this)">🌙 Sleep</button>
       <button class="chip" onclick="filterHist('Behavior',this)">💛 Behavior</button>
       <button class="chip" onclick="filterHist('Digestion',this)">🫁 Digestion</button>
-      <button class="chip" onclick="filterHist('Therapy',this)">🤝 Therapy</button>
-      <button class="chip" onclick="filterHist('Medications',this)">💊 Meds</button>
+      <button class="chip" onclick="filterHist('Therapy & School',this)">🤝 Therapy</button>
+      <button class="chip" onclick="filterHist('Medication',this)">💊 Meds</button>
     </div>
     <div id="hist-list"><div class="empty">Loading…</div></div>
   </div>
   <div class="bottom-nav">
-    <button class="nav-btn" onclick="showScreen('home',this)">
-      <span class="nav-btn-icon">🏠</span>
-      <span class="nav-btn-label">Log</span>
-    </button>
-    <button class="nav-btn active" onclick="showScreen('history-screen',this);loadHistory()">
-      <span class="nav-btn-icon">📋</span>
-      <span class="nav-btn-label">History</span>
-    </button>
+    <button class="nav-btn" onclick="showScreen('home',this)"><span class="nav-btn-icon">🏠</span><span class="nav-btn-label">Log</span></button>
+    <button class="nav-btn active" onclick="showScreen('history-screen',this);loadHistory()"><span class="nav-btn-icon">📋</span><span class="nav-btn-label">History</span></button>
   </div>
 </div>
 
 <script>
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyz6l1tr_6TxXj3TntgX7hHgbR123EqjhRxdWy-KWbvDwdsiEmEuXcng6Q-wrfyc8EI/exec';
-
-const CAT_COLOR = {Food:'#e8763a',Sleep:'#4a7fc1',Behavior:'#c14a7f',Digestion:'#8a6e2a',Therapy:'#6a4ac1',Medications:'#4a9c8a'};
-const CAT_ICON  = {Food:'🥗',Sleep:'🌙',Behavior:'💛',Digestion:'🫁',Therapy:'🤝',Medications:'💊'};
-const CAT_BG    = {Food:'#fef0e8',Sleep:'#eaf0fc',Behavior:'#fceaf2',Digestion:'#f5f0e4',Therapy:'#eeeaf8',Medications:'#e4f4f2'};
+const LOGGERS = ['Julia','Paul','Emily','Karleen','Laurel','Grandpa & Grandma','Papa & Nana','Other'];
+const CAT_COLOR = {Food:'#e8763a',Sleep:'#4a7fc1',Behavior:'#c14a7f',Digestion:'#8a6e2a','Therapy & School':'#6a4ac1',Medication:'#4a9c8a'};
+const CAT_ICON  = {Food:'🥗',Sleep:'🌙',Behavior:'💛',Digestion:'🫁','Therapy & School':'🤝',Medication:'💊'};
 
 let currentCat = null;
 let allEntries = [];
 let histFilter = 'all';
 let savedLogger = localStorage.getItem('hj-logger') || '';
+let pouchCounts = {};
 
-// ── INIT ──────────────────────────────────────────────────
-const now = new Date();
-const hr = now.getHours();
-document.getElementById('greeting').textContent =
-  hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : 'Good evening';
-
-if (savedLogger) document.getElementById('logger-name').value = savedLogger;
-document.getElementById('f-date').value = now.toISOString().slice(0,10);
-
+// Init
+const hr = new Date().getHours();
+document.getElementById('greeting').textContent = hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
 loadEntryCounts();
 
-// ── SCREEN NAV ────────────────────────────────────────────
-function showScreen(id, btn) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
 
-// ── FORM DEFINITIONS ──────────────────────────────────────
-const FORMS = {
-  food: {
-    label: 'Food',
-    tableLabel: 'Food',
-    color: '#e8763a',
-    icon: '🥗',
-    bg: '#fef0e8',
-    fields: [
-      { id:'meal', label:'Meal', type:'chips-single', options:['Breakfast','Lunch','Dinner','Snack','Drink only'], def:'Breakfast' },
-      { id:'amount', label:'How much', type:'chips-single', options:['All of it','Most','About half','A few bites','Refused'], def:'Most' },
-      { id:'reaction', label:'Any reaction?', type:'chips-single', options:['None','Vomiting','Rash','GI upset','Mood shift'], def:'None' },
-      { id:'time', label:'Time', type:'time-single' }
-    ]
-  },
-  sleep: {
-    label: 'Sleep',
-    tableLabel: 'Sleep',
-    color: '#4a7fc1',
-    icon: '🌙',
-    bg: '#eaf0fc',
-    fields: [
-      { id:'quality', label:'How did she sleep?', type:'rating', options:['😢','😟','😐','🙂','😄'], labels:['Terrible','Poor','Okay','Good','Great'] },
-      { id:'wakings', label:'Night wakings', type:'chips-single', options:['None','Once','Twice','3+'], def:'None' },
-      { id:'time', label:'Bedtime → Wake time', type:'time-dual', startLabel:'Bedtime', endLabel:'Wake time' }
-    ]
-  },
-  behavior: {
-    label: 'Behavior & mood',
-    tableLabel: 'Behavior',
-    color: '#c14a7f',
-    icon: '💛',
-    bg: '#fceaf2',
-    fields: [
-      { id:'mood', label:'Overall mood', type:'rating', options:['😢','😟','😐','🙂','😄'], labels:['Very hard','Hard','Okay','Good','Great'] },
-      { id:'energy', label:'Energy', type:'chips-single', options:['Very low','Low','Typical','High','Hyper'], def:'Typical' },
-      { id:'episode', label:'Any episodes?', type:'chips-single', options:['None','Meltdown','Tantrum','Stimming','Regression','Win ⭐'], def:'None' },
-      { id:'time', label:'Time', type:'time-single' }
-    ]
-  },
-  digestion: {
-    label: 'Digestion & GI',
-    tableLabel: 'Digestion',
-    color: '#8a6e2a',
-    icon: '🫁',
-    bg: '#f5f0e4',
-    fields: [
-      { id:'comfort', label:'Comfort level', type:'rating', options:['😢','😟','😐','🙂','😄'], labels:['Pain','Uncomfortable','Okay','Comfortable','Great'] },
-      { id:'bm', label:'Bowel movements', type:'chips-single', options:['None','1','2','3+'], def:'1' },
-      { id:'consistency', label:'Consistency', type:'chips-single', options:['Hard','Normal','Soft','Loose','Watery'], def:'Normal' },
-      { id:'time', label:'Time', type:'time-single' }
-    ]
-  },
-  therapy: {
-    label: 'Therapy',
-    tableLabel: 'Therapy',
-    color: '#6a4ac1',
-    icon: '🤝',
-    bg: '#eeeaf8',
-    fields: [
-      { id:'type', label:'Type', type:'chips-single', options:['PT','OT','Speech','ABA','Feeding','Medical','Other'], def:'PT' },
-      { id:'engagement', label:'How she engaged', type:'rating', options:['😢','😟','😐','🙂','😄'], labels:['Refused','Hard','Okay','Good','Great'] },
-      { id:'time', label:'Session time', type:'time-dual', startLabel:'Start', endLabel:'End' }
-    ]
-  },
-  meds: {
-    label: 'Meds & supplements',
-    tableLabel: 'Medications',
-    color: '#4a9c8a',
-    icon: '💊',
-    bg: '#e4f4f2',
-    fields: [
-      { id:'status', label:'Status', type:'chips-single', options:['Given ✓','Missed','Refused','Partial'], def:'Given ✓' },
-      { id:'med', label:'What', type:'text-input', placeholder:'e.g. Vitamin D, Melatonin…' },
-      { id:'time', label:'Time given', type:'time-single' }
-    ]
-  }
-};
-
-// ── OPEN FORM ─────────────────────────────────────────────
-function openForm(cat) {
-  currentCat = cat;
-  const def = FORMS[cat];
-
-  document.getElementById('form-icon').textContent = def.icon;
-  document.getElementById('form-icon').style.background = def.bg;
-  document.getElementById('form-title').textContent = def.label;
-
-  // Set today's date
-  document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
-  document.getElementById('f-notes').value = '';
-
-  // Restore logger name
-  const loggerEl = document.getElementById('logger-name');
-  if (savedLogger && !loggerEl.value) loggerEl.value = savedLogger;
-
-  // Render fields
-  const container = document.getElementById('form-fields');
-  container.innerHTML = def.fields.map(f => renderField(f, def.color)).join('');
-
-  // Reset save btn
-  const btn = document.getElementById('save-btn');
-  btn.style.background = def.color;
-  btn.innerHTML = 'Save entry';
-  btn.disabled = false;
-
-  showScreen('form-screen', null);
+// ── LOGGER SELECT HTML ─────────────────────────────────────
+function loggerSelectHTML() {
+  const opts = LOGGERS.map(n=>`<option value="${n}"${n===savedLogger?' selected':''}>${n}</option>`).join('');
+  return `<div class="logger-row">
+    <span class="logger-label">Logging as</span>
+    <select class="logger-select" id="logger-name" onchange="savedLogger=this.value;localStorage.setItem('hj-logger',this.value)">
+      <option value="">Select…</option>${opts}
+    </select>
+  </div>`;
 }
 
-function renderField(f, color) {
-  if (f.type === 'chips-single') {
-    const chips = f.options.map(o =>
-      `<button class="chip${o===f.def?' sel':''}" style="${o===f.def?`background:${color};color:#fff`:''}" onclick="selectChip(this,'${f.id}','${color}')">${o}</button>`
-    ).join('');
-    return `<div class="form-section" id="section-${f.id}">
-      <div class="section-label">${f.label}</div>
-      <div class="chips" data-field="${f.id}">${chips}</div>
+// ── TIME SECTION HTML ──────────────────────────────────────
+function timeSectionHTML(mode='single', labels=['Time']) {
+  if (mode === 'single') {
+    return `<div class="form-section">
+      <div class="section-label">Time <span class="optional-tag">(optional)</span></div>
+      <div class="time-row single"><div class="time-field">
+        <input type="time" class="time-input" id="f-time-start">
+      </div></div>
     </div>`;
   }
-  if (f.type === 'rating') {
-    const btns = f.options.map((o,i) =>
-      `<button class="rating-btn${i===2?' sel':''}" style="${i===2?`background:${color};border-color:${color}`:''}" title="${f.labels[i]}" onclick="selectRating(this,'${f.id}','${color}')">${o}</button>`
-    ).join('');
-    return `<div class="form-section" id="section-${f.id}">
-      <div class="section-label">${f.label}</div>
-      <div class="rating-row" data-field="${f.id}">${btns}</div>
-    </div>`;
-  }
-  if (f.type === 'time-single') {
-    return `<div class="form-section" id="section-${f.id}">
-      <div class="section-label">${f.label} <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
-      <div class="time-row single">
-        <div class="time-field">
-          <input type="time" class="time-input" id="f-${f.id}-start">
-        </div>
+  if (mode === 'triple') {
+    return `<div class="form-section">
+      <div class="section-label">Times</div>
+      <div class="time-row triple">
+        <div class="time-field"><div class="time-label">${labels[0]}</div><input type="time" class="time-input" id="f-time-inbed"></div>
+        <div class="time-field"><div class="time-label">${labels[1]}</div><input type="time" class="time-input" id="f-time-asleep"></div>
+        <div class="time-field"><div class="time-label">${labels[2]}</div><input type="time" class="time-input" id="f-time-awake"></div>
       </div>
     </div>`;
   }
-  if (f.type === 'time-dual') {
-    return `<div class="form-section" id="section-${f.id}">
-      <div class="section-label">${f.label}</div>
-      <div class="time-row dual">
-        <div class="time-field">
-          <div class="time-label">${f.startLabel}</div>
-          <input type="time" class="time-input" id="f-${f.id}-start">
-        </div>
-        <div class="time-field">
-          <div class="time-label">${f.endLabel}</div>
-          <input type="time" class="time-input" id="f-${f.id}-end">
-        </div>
-      </div>
-    </div>`;
-  }
-  if (f.type === 'text-input') {
-    return `<div class="form-section" id="section-${f.id}">
-      <div class="section-label">${f.label}</div>
-      <input type="text" class="time-input" id="f-${f.id}-val" placeholder="${f.placeholder||''}" style="width:100%">
-    </div>`;
-  }
-  return '';
+  return `<div class="form-section">
+    <div class="section-label">Time</div>
+    <div class="time-row dual">
+      <div class="time-field"><div class="time-label">${labels[0]}</div><input type="time" class="time-input" id="f-time-start"></div>
+      <div class="time-field"><div class="time-label">${labels[1]}</div><input type="time" class="time-input" id="f-time-end"></div>
+    </div>
+  </div>`;
+}
+
+function notesHTML(placeholder='Anything worth noting…') {
+  return `<div class="form-section">
+    <div class="section-label">Notes <span class="optional-tag">(optional)</span></div>
+    <textarea class="notes-input" id="f-notes" placeholder="${placeholder}" rows="3"></textarea>
+  </div>`;
+}
+
+function saveBtnHTML(color) {
+  return `<button class="save-btn" id="save-btn" style="background:${color}" onclick="saveEntry()">Save entry</button>`;
+}
+
+function dateHTML() {
+  return `<div class="form-section">
+    <div class="section-label">Date</div>
+    <input type="date" id="f-date" class="time-input" style="width:100%" value="${new Date().toISOString().slice(0,10)}">
+  </div>`;
+}
+
+// ── CHIP HELPERS ───────────────────────────────────────────
+function chipsHTML(fieldId, options, color, multiSelect=false, defaultSel=null) {
+  return options.map(o => {
+    const isSel = o === defaultSel;
+    return `<button class="chip${isSel?' sel':''}" style="${isSel?`background:${color};color:#fff`:''}"
+      onclick="${multiSelect?`toggleChip(this,'${color}')`:`selectChip(this,'${fieldId}','${color}')`}"
+      data-field="${fieldId}" data-value="${o}">${o}</button>`;
+  }).join('');
 }
 
 function selectChip(el, fieldId, color) {
-  const row = el.closest(`[data-field="${fieldId}"]`);
-  row.querySelectorAll('.chip').forEach(c => { c.classList.remove('sel'); c.style.background=''; c.style.color=''; });
-  el.classList.add('sel');
-  el.style.background = color;
-  el.style.color = '#fff';
+  document.querySelectorAll(`.chip[data-field="${fieldId}"]`).forEach(c=>{c.classList.remove('sel');c.style.background='';c.style.color='';});
+  el.classList.add('sel'); el.style.background=color; el.style.color='#fff';
+}
+
+function toggleChip(el, color) {
+  if (el.classList.contains('sel')) { el.classList.remove('sel'); el.style.background=''; el.style.color=''; }
+  else { el.classList.add('sel'); el.style.background=color; el.style.color='#fff'; }
+}
+
+function getChipVal(fieldId, multi=false) {
+  const sels = [...document.querySelectorAll(`.chip[data-field="${fieldId}"].sel`)].map(c=>c.dataset.value);
+  return multi ? sels.join(', ') : (sels[0]||'');
+}
+
+// ── RATING HELPER ──────────────────────────────────────────
+function ratingHTML(fieldId, options, labels, color) {
+  return options.map((o,i)=>`<button class="rating-btn${i===2?' sel':''}" style="${i===2?`background:${color};border-color:${color}`:''}"
+    title="${labels[i]}" data-field="${fieldId}" data-value="${labels[i]}"
+    onclick="selectRating(this,'${fieldId}','${color}')">${o}</button>`).join('');
 }
 
 function selectRating(el, fieldId, color) {
-  const row = el.closest(`[data-field="${fieldId}"]`);
-  row.querySelectorAll('.rating-btn').forEach(b => { b.classList.remove('sel'); b.style.background=''; b.style.borderColor=''; });
-  el.classList.add('sel');
-  el.style.background = color;
-  el.style.borderColor = color;
+  document.querySelectorAll(`.rating-btn[data-field="${fieldId}"]`).forEach(b=>{b.classList.remove('sel');b.style.background='';b.style.borderColor='';});
+  el.classList.add('sel'); el.style.background=color; el.style.borderColor=color;
 }
 
-function getFieldVal(f) {
-  if (f.type === 'chips-single') {
-    const sel = document.querySelector(`[data-field="${f.id}"] .chip.sel`);
-    return sel ? sel.textContent.trim() : '';
+function getRatingVal(fieldId) {
+  const sel = document.querySelector(`.rating-btn[data-field="${fieldId}"].sel`);
+  return sel ? sel.dataset.value : '';
+}
+
+// ── POUCH COUNTER ──────────────────────────────────────────
+function pouchGridHTML(panelId, flavors) {
+  return flavors.map(f => {
+    const key = panelId+'|'+f;
+    return `<div class="pouch-row">
+      <div class="pouch-name">${f}</div>
+      <div class="pouch-controls">
+        <button class="pouch-btn" onclick="adjustPouch('${key}',-0.5)">−</button>
+        <div class="pouch-val" id="pv-${CSS.escape(key)}">0</div>
+        <button class="pouch-btn" onclick="adjustPouch('${key}',0.5)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function adjustPouch(key, delta) {
+  const cur = pouchCounts[key] || 0;
+  const next = Math.max(0, Math.min(3, Math.round((cur + delta) * 2) / 2));
+  pouchCounts[key] = next;
+  const el = document.getElementById('pv-' + CSS.escape(key));
+  if (el) el.textContent = next === 0 ? '0' : next % 1 === 0 ? next : next.toFixed(1);
+}
+
+function getPouchSummary(panelId, flavors) {
+  return flavors.map(f => {
+    const v = pouchCounts[panelId+'|'+f] || 0;
+    return v > 0 ? `${f}: ${v%1===0?v:v.toFixed(1)}` : null;
+  }).filter(Boolean).join(', ');
+}
+
+// ── OPEN FORM ──────────────────────────────────────────────
+function openForm(cat) {
+  currentCat = cat;
+  pouchCounts = {};
+  const color = ({food:'#e8763a',sleep:'#4a7fc1',behavior:'#c14a7f',digestion:'#8a6e2a',therapy:'#6a4ac1',meds:'#4a9c8a'})[cat];
+  const icon  = ({food:'🥗',sleep:'🌙',behavior:'💛',digestion:'🫁',therapy:'🤝',meds:'💊'})[cat];
+  const bg    = ({food:'#fef0e8',sleep:'#eaf0fc',behavior:'#fceaf2',digestion:'#f5f0e4',therapy:'#eeeaf8',meds:'#e4f4f2'})[cat];
+  const label = ({food:'Food',sleep:'Sleep',behavior:'Behavior & mood',digestion:'Digestion & GI',therapy:'Therapy & School',meds:'Medication'})[cat];
+
+  document.getElementById('form-icon').textContent = icon;
+  document.getElementById('form-icon').style.background = bg;
+  document.getElementById('form-title').textContent = label;
+
+  document.getElementById('form-body-inner').innerHTML = buildForm(cat, color);
+  showScreen('form-screen');
+}
+
+function buildForm(cat, color) {
+  const parts = [loggerSelectHTML(), dateHTML()];
+
+  if (cat === 'food') {
+    parts.push(timeSectionHTML('single'));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Type <span class="optional-tag">(select all that apply)</span></div>
+      <div class="chips">
+        ${chipsHTML('food-type',['Bottle','Serenity','Real Foods','Applesauce','Yogurt','Cheetos','Other'],color,true)}
+      </div>
+    </div>`);
+
+    // Bottle sub-panel
+    parts.push(`<div class="sub-panel" id="panel-bottle">
+      <div class="form-section">
+        <div class="section-label">Ounces consumed</div>
+        <div class="oz-row">
+          <input type="number" class="oz-input" id="bottle-oz" min="0" max="32" step="0.5" placeholder="0">
+          <span class="oz-label">oz</span>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="section-label">Additives</div>
+        <div class="chips">
+          ${chipsHTML('bottle-add',['Miralax','Senna'],color,true)}
+        </div>
+      </div>
+    </div>`);
+
+    // Serenity sub-panel
+    const serenityFlavors = ['Bison','Beef','Chicken','Turkey','Salmon','Squash','Roots','Carrots','Sweet Potato'];
+    parts.push(`<div class="sub-panel" id="panel-serenity">
+      <div class="section-label">Pouches eaten</div>
+      <div class="pouch-grid">${pouchGridHTML('serenity', serenityFlavors)}</div>
+    </div>`);
+
+    // Real Foods sub-panel
+    const realFlavors = ['Quinoa, Kale, Hemp','Turkey, Sweet Potato, Peaches','Chicken, Carrots, Brown Rice','Salmon, Oats, Squash','Eggs, Apples, Oats','Prunes, Pears, Pumpkin'];
+    parts.push(`<div class="sub-panel" id="panel-realfoods">
+      <div class="section-label">Pouches eaten</div>
+      <div class="pouch-grid">${pouchGridHTML('realfoods', realFlavors)}</div>
+    </div>`);
+
+    // Applesauce sub-panel
+    parts.push(`<div class="sub-panel" id="panel-applesauce">
+      <div class="section-label">Pouches eaten</div>
+      <div class="pouch-grid">${pouchGridHTML('applesauce', ['Apple','Apple-Cinnamon'])}</div>
+    </div>`);
+
+    // Yogurt sub-panel
+    parts.push(`<div class="sub-panel" id="panel-yogurt">
+      <div class="section-label">Pouches eaten</div>
+      <div class="pouch-grid">${pouchGridHTML('yogurt', ['Vanilla','Strawberry'])}</div>
+    </div>`);
+
+    // Cheetos sub-panel
+    parts.push(`<div class="sub-panel" id="panel-cheetos">
+      <div class="section-label">Amount</div>
+      <div class="chips">${chipsHTML('cheetos-amt',['A few','Half a bag','Full bag'],color,false,'A few')}</div>
+    </div>`);
+
+    // Other sub-panel
+    parts.push(`<div class="sub-panel" id="panel-other">
+      <div class="form-section">
+        <div class="section-label">What food?</div>
+        <input type="text" class="text-input" id="other-food" placeholder="e.g. crackers, fruit…">
+      </div>
+      <div class="form-section">
+        <div class="section-label">How much?</div>
+        <input type="text" class="text-input" id="other-amount" placeholder="e.g. a few bites, half a cup…">
+      </div>
+    </div>`);
+
+  } else if (cat === 'sleep') {
+    parts.push(`<div class="form-section">
+      <div class="section-label">Mood at bedtime / nap</div>
+      <div class="chips">${chipsHTML('bedtime-mood',['😊 Content','😟 Fussy','😠 Angry'],color,false,'😊 Content')}</div>
+    </div>`);
+    parts.push(timeSectionHTML('triple',['In Bed','Asleep','Awake']));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Sleep quality</div>
+      <div class="rating-row">${ratingHTML('sleep-quality',['😢','😟','😐','🙂','😄'],['Terrible','Poor','Okay','Good','Great'],color)}</div>
+    </div>`);
+
+  } else if (cat === 'behavior') {
+    parts.push(timeSectionHTML('single'));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Overall mood</div>
+      <div class="rating-row">${ratingHTML('overall-mood',['😢','😟','😐','🙂','😄'],['Very Hard','Hard','Okay','Good','Great'],color)}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Mood</div>
+      <div class="chips">${chipsHTML('mood-desc',['Happy','Clingy','Cuddly','Lethargic','Angry'],color,false,'Happy')}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Behaviors <span class="optional-tag">(select all that apply)</span></div>
+      <div class="chips">${chipsHTML('behaviors',['Biting','Hair Pulling','Grabbing','Kicking','Hitting'],color,true)}</div>
+    </div>`);
+
+  } else if (cat === 'digestion') {
+    parts.push(timeSectionHTML('single'));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Type</div>
+      <div class="chips">${chipsHTML('diaper-type',['Wet','Bowel Movement'],color,false,'Wet')}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Size <span class="optional-tag">(optional)</span></div>
+      <div class="chips">${chipsHTML('diaper-size',['Small','Medium','Large'],color)}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Consistency <span class="optional-tag">(optional)</span></div>
+      <div class="chips">${chipsHTML('consistency',['Hard','Normal','Soft','Loose','Watery'],color)}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Enema?</div>
+      <div class="chips">${chipsHTML('enema',['No','Yes'],color,false,'No')}</div>
+    </div>`);
+
+  } else if (cat === 'therapy') {
+    parts.push(timeSectionHTML('dual',['Start','End']));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Type</div>
+      <div class="chips">${chipsHTML('therapy-type',['PT','OT','Speech','Feeding','Music','School','Other'],color,false,'PT')}</div>
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">How she engaged</div>
+      <div class="rating-row">${ratingHTML('engagement',['😢','😟','😐','🙂','😄'],['Refused','Hard','Okay','Good','Great'],color)}</div>
+    </div>`);
+
+  } else if (cat === 'meds') {
+    parts.push(timeSectionHTML('single'));
+    parts.push(`<div class="form-section">
+      <div class="section-label">Medication / supplement</div>
+      <input type="text" class="text-input" id="med-name" placeholder="e.g. Miralax, Vitamin D, Melatonin…">
+    </div>`);
+    parts.push(`<div class="form-section">
+      <div class="section-label">Amount</div>
+      <input type="text" class="text-input" id="med-amount" placeholder="e.g. 5ml, 400 IU, 1 cap…">
+    </div>`);
   }
-  if (f.type === 'rating') {
-    const sel = document.querySelector(`[data-field="${f.id}"] .rating-btn.sel`);
-    return sel ? sel.title : '';
+
+  parts.push(notesHTML());
+  parts.push(saveBtnHTML(({food:'#e8763a',sleep:'#4a7fc1',behavior:'#c14a7f',digestion:'#8a6e2a',therapy:'#6a4ac1',meds:'#4a9c8a'})[cat]));
+
+  const html = parts.join('');
+
+  // After render, hook up food type toggles
+  if (cat === 'food') {
+    setTimeout(() => {
+      document.querySelectorAll('.chip[data-field="food-type"]').forEach(chip => {
+        chip.addEventListener('click', () => updateFoodPanels());
+      });
+    }, 50);
   }
-  if (f.type === 'time-single') {
-    return { start: document.getElementById(`f-${f.id}-start`)?.value || '', end: '' };
-  }
-  if (f.type === 'time-dual') {
-    return { start: document.getElementById(`f-${f.id}-start`)?.value || '', end: document.getElementById(`f-${f.id}-end`)?.value || '' };
-  }
-  if (f.type === 'text-input') {
-    return document.getElementById(`f-${f.id}-val`)?.value || '';
-  }
-  return '';
+
+  return html;
+}
+
+function updateFoodPanels() {
+  const selected = [...document.querySelectorAll('.chip[data-field="food-type"].sel')].map(c=>c.dataset.value);
+  const map = {
+    'Bottle':'panel-bottle','Serenity':'panel-serenity','Real Foods':'panel-realfoods',
+    'Applesauce':'panel-applesauce','Yogurt':'panel-yogurt','Cheetos':'panel-cheetos','Other':'panel-other'
+  };
+  Object.entries(map).forEach(([key,panelId]) => {
+    const panel = document.getElementById(panelId);
+    if (panel) panel.classList.toggle('open', selected.includes(key));
+  });
 }
 
 // ── SAVE ──────────────────────────────────────────────────
 async function saveEntry() {
-  const def = FORMS[currentCat];
   const btn = document.getElementById('save-btn');
-  const loggerEl = document.getElementById('logger-name');
-  const logger = loggerEl.value.trim();
+  const logger = document.getElementById('logger-name')?.value || '';
   if (logger) { savedLogger = logger; localStorage.setItem('hj-logger', logger); }
 
-  // Build subcategory summary and time fields
-  const parts = [];
-  let startTime = '', endTime = '';
+  const cat = currentCat;
+  const catLabel = {food:'Food',sleep:'Sleep',behavior:'Behavior',digestion:'Digestion',therapy:'Therapy & School',meds:'Medication'}[cat];
+  const date = document.getElementById('f-date')?.value || new Date().toISOString().slice(0,10);
 
-  def.fields.forEach(f => {
-    const val = getFieldVal(f);
-    if (f.type === 'time-single' || f.type === 'time-dual') {
-      startTime = val.start || '';
-      endTime   = val.end   || '';
-    } else if (val) {
-      parts.push(val);
+  // Time fields
+  let startTime = '', endTime = '';
+  if (cat === 'sleep') {
+    startTime = document.getElementById('f-time-asleep')?.value || '';
+    endTime   = document.getElementById('f-time-awake')?.value  || '';
+  } else if (cat === 'therapy') {
+    startTime = document.getElementById('f-time-start')?.value || '';
+    endTime   = document.getElementById('f-time-end')?.value   || '';
+  } else {
+    startTime = document.getElementById('f-time-start')?.value || '';
+  }
+
+  // Build subcategory summary
+  let subparts = [];
+
+  if (cat === 'food') {
+    const types = [...document.querySelectorAll('.chip[data-field="food-type"].sel')].map(c=>c.dataset.value);
+    subparts.push(...types);
+    if (types.includes('Bottle')) {
+      const oz = document.getElementById('bottle-oz')?.value;
+      if (oz) subparts.push(oz + ' oz');
+      const adds = getChipVal('bottle-add', true);
+      if (adds) subparts.push(adds);
     }
-  });
+    if (types.includes('Serenity')) {
+      const s = getPouchSummary('serenity',['Bison','Beef','Chicken','Turkey','Salmon','Squash','Roots','Carrots','Sweet Potato']);
+      if (s) subparts.push('Serenity: ' + s);
+    }
+    if (types.includes('Real Foods')) {
+      const s = getPouchSummary('realfoods',['Quinoa, Kale, Hemp','Turkey, Sweet Potato, Peaches','Chicken, Carrots, Brown Rice','Salmon, Oats, Squash','Eggs, Apples, Oats','Prunes, Pears, Pumpkin']);
+      if (s) subparts.push('Real Foods: ' + s);
+    }
+    if (types.includes('Applesauce')) {
+      const s = getPouchSummary('applesauce',['Apple','Apple-Cinnamon']);
+      if (s) subparts.push('Applesauce: ' + s);
+    }
+    if (types.includes('Yogurt')) {
+      const s = getPouchSummary('yogurt',['Vanilla','Strawberry']);
+      if (s) subparts.push('Yogurt: ' + s);
+    }
+    if (types.includes('Cheetos')) {
+      const amt = getChipVal('cheetos-amt');
+      if (amt) subparts.push('Cheetos: ' + amt);
+    }
+    if (types.includes('Other')) {
+      const food = document.getElementById('other-food')?.value;
+      const amt  = document.getElementById('other-amount')?.value;
+      if (food) subparts.push(food + (amt ? ' · ' + amt : ''));
+    }
+  } else if (cat === 'sleep') {
+    subparts.push(getChipVal('bedtime-mood'));
+    const inBed   = document.getElementById('f-time-inbed')?.value   || '';
+    const asleep  = document.getElementById('f-time-asleep')?.value  || '';
+    const awake   = document.getElementById('f-time-awake')?.value   || '';
+    if (inBed)  subparts.push('In bed: ' + formatTime(inBed));
+    if (asleep) subparts.push('Asleep: ' + formatTime(asleep));
+    if (awake)  subparts.push('Awake: '  + formatTime(awake));
+    startTime = asleep; endTime = awake;
+    subparts.push(getRatingVal('sleep-quality'));
+  } else if (cat === 'behavior') {
+    subparts.push(getRatingVal('overall-mood'));
+    subparts.push(getChipVal('mood-desc'));
+    const behaviors = getChipVal('behaviors', true);
+    if (behaviors) subparts.push(behaviors);
+  } else if (cat === 'digestion') {
+    subparts.push(getChipVal('diaper-type'));
+    const size = getChipVal('diaper-size');
+    if (size) subparts.push(size);
+    const cons = getChipVal('consistency');
+    if (cons) subparts.push(cons);
+    subparts.push('Enema: ' + (getChipVal('enema') || 'No'));
+  } else if (cat === 'therapy') {
+    subparts.push(getChipVal('therapy-type'));
+    subparts.push(getRatingVal('engagement'));
+  } else if (cat === 'meds') {
+    const name = document.getElementById('med-name')?.value;
+    const amt  = document.getElementById('med-amount')?.value;
+    if (name) subparts.push(name);
+    if (amt)  subparts.push(amt);
+  }
 
   const payload = {
-    category:    def.tableLabel,
-    subcategory: parts.join(' · '),
+    category:    catLabel,
+    subcategory: subparts.filter(Boolean).join(' · '),
     rating:      '',
-    notes:       document.getElementById('f-notes').value.trim(),
+    notes:       document.getElementById('f-notes')?.value?.trim() || '',
     loggedBy:    logger,
-    date:        document.getElementById('f-date').value,
+    date,
     startTime,
     endTime
   };
@@ -590,78 +695,56 @@ async function saveEntry() {
 
   try {
     await fetch(SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type':'application/json'},
       body: JSON.stringify(payload)
     });
-
-    // Optimistic local update
-    allEntries.unshift({
-      category: def.tableLabel,
-      subcategory: payload.subcategory,
-      notes: payload.notes,
-      logged_by: logger,
-      date: payload.date,
-      start_time: startTime,
-      end_time: endTime,
-      timestamp: new Date().toISOString()
-    });
+    allEntries.unshift({ category: catLabel, subcategory: payload.subcategory, notes: payload.notes, logged_by: logger, date, start_time: startTime, end_time: endTime, timestamp: new Date().toISOString() });
     updateCounts();
-
-    btn.innerHTML = 'Saved ✓';
-    btn.style.background = '#1a7050';
     toast('✓ Saved to Google Sheet');
-    setTimeout(() => showScreen('home', null), 900);
-  } catch(err) {
+    setTimeout(() => showScreen('home'), 900);
+  } catch {
     btn.innerHTML = 'Save entry';
     btn.disabled = false;
-    btn.style.background = def.color;
     toast('⚠️ Could not save — check connection');
   }
 }
 
-// ── COUNTS & STREAK ───────────────────────────────────────
+// ── COUNTS & STREAK ────────────────────────────────────────
 async function loadEntryCounts() {
   try {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
     if (data.status === 'success') {
       allEntries = (data.entries || []).reverse();
-      updateCounts();
-      updateStreak();
+      updateCounts(); updateStreak();
     }
   } catch { updateStreak(); }
 }
 
 function updateCounts() {
-  const cats = {food:'Food',sleep:'Sleep',behavior:'Behavior',digestion:'Digestion',therapy:'Therapy',meds:'Medications'};
-  Object.entries(cats).forEach(([k,v]) => {
-    const n = allEntries.filter(e => e.category === v).length;
-    const el = document.getElementById('cnt-' + k);
+  const map = {food:'Food',sleep:'Sleep',behavior:'Behavior',digestion:'Digestion',therapy:'Therapy & School',meds:'Medication'};
+  Object.entries(map).forEach(([k,v]) => {
+    const n = allEntries.filter(e=>e.category===v).length;
+    const el = document.getElementById('cnt-'+k);
     if (el) el.textContent = n || '';
   });
 }
 
 function updateStreak() {
-  const days = new Set(allEntries.map(e => {
-    const d = e.date || (e.timestamp ? new Date(e.timestamp).toISOString().slice(0,10) : '');
-    return d;
-  }).filter(Boolean));
+  const days = new Set(allEntries.map(e=>(e.date||'').slice(0,10)).filter(Boolean));
   const sorted = [...days].sort().reverse();
-  let streak = 0, cur = new Date(); cur.setHours(0,0,0,0);
+  let streak=0, cur=new Date(); cur.setHours(0,0,0,0);
   for (const ds of sorted) {
-    const d = new Date(ds + 'T00:00:00');
-    const diff = Math.round((cur - d) / 86400000);
-    if (diff <= 1) { streak++; cur = d; } else break;
+    const d=new Date(ds+'T12:00:00');
+    if (Math.round((cur-d)/86400000)<=1){streak++;cur=d;}else break;
   }
   const el = document.getElementById('streak-el');
-  if (el) el.textContent = streak > 0 ? `🔥 ${streak} day streak` : 'Start logging today';
+  if (el) el.textContent = streak>0 ? `🔥 ${streak} day streak` : 'Start logging today';
 }
 
-// ── HISTORY ───────────────────────────────────────────────
+// ── HISTORY ────────────────────────────────────────────────
 let historyLoaded = false;
-
 async function loadHistory() {
   if (historyLoaded && allEntries.length) { renderHistory(); return; }
   document.getElementById('hist-list').innerHTML = '<div class="empty">Loading…</div>';
@@ -669,60 +752,50 @@ async function loadHistory() {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
     if (data.status === 'success') {
-      allEntries = (data.entries || []).reverse();
+      allEntries = (data.entries||[]).reverse();
       historyLoaded = true;
-      updateCounts();
-      updateStreak();
-      renderHistory();
+      updateCounts(); updateStreak(); renderHistory();
     }
   } catch {
-    document.getElementById('hist-list').innerHTML = '<div class="empty">Could not load — check connection</div>';
+    document.getElementById('hist-list').innerHTML = '<div class="empty">Could not load</div>';
   }
 }
 
 function filterHist(f, el) {
   histFilter = f;
-  document.querySelectorAll('#hist-filter .chip').forEach(c => { c.classList.remove('sel'); c.style.background=''; c.style.color=''; });
+  document.querySelectorAll('#hist-filter .chip').forEach(c=>{c.classList.remove('sel');c.style.background='';c.style.color='';});
   el.classList.add('sel');
-  el.style.background = f === 'all' ? 'var(--text)' : (CAT_COLOR[f] || 'var(--text)');
+  el.style.background = f==='all'?'var(--text)':(CAT_COLOR[f]||'var(--text)');
   el.style.color = '#fff';
   renderHistory();
 }
 
 function renderHistory() {
   const list = document.getElementById('hist-list');
-  const filtered = histFilter === 'all' ? allEntries : allEntries.filter(e => e.category === histFilter);
-  if (!filtered.length) { list.innerHTML = '<div class="empty">No entries yet</div>'; return; }
-
-  let lastDate = '';
-  list.innerHTML = filtered.slice(0,100).map(e => {
-    const rawDate = e.date || (e.timestamp ? new Date(e.timestamp).toISOString().slice(0,10) : '');
-    const displayDate = rawDate ? new Date(rawDate + 'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}) : '';
-    const dateHdr = displayDate !== lastDate ? `<div class="date-group-label">${displayDate}</div>` : '';
+  const filtered = histFilter==='all'?allEntries:allEntries.filter(e=>e.category===histFilter);
+  if (!filtered.length){list.innerHTML='<div class="empty">No entries yet</div>';return;}
+  let lastDate='';
+  list.innerHTML = filtered.slice(0,100).map(e=>{
+    const rawDate = (e.date||'').slice(0,10);
+    const displayDate = rawDate ? new Date(rawDate+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}) : '';
+    const dateHdr = displayDate!==lastDate?`<div class="date-group-label">${displayDate}</div>`:'';
     lastDate = displayDate;
-
-    const color = CAT_COLOR[e.category] || '#888';
-    const icon  = CAT_ICON[e.category]  || '📝';
-
-    // Time display
-    let timeStr = '';
-    const st = e.start_time || '';
-    const et = e.end_time   || '';
-    if (st && et) timeStr = formatTime(st) + ' – ' + formatTime(et);
-    else if (st)  timeStr = formatTime(st);
-
+    const color = CAT_COLOR[e.category]||'#888';
+    const icon  = CAT_ICON[e.category]||'📝';
+    let timeStr='';
+    if (e.start_time && e.end_time) timeStr=formatTime(e.start_time)+' – '+formatTime(e.end_time);
+    else if (e.start_time) timeStr=formatTime(e.start_time);
     const sub = [e.subcategory, timeStr].filter(Boolean).join('  ·  ');
-
-    return dateHdr + `<div class="hist-entry">
+    return dateHdr+`<div class="hist-entry">
       <div class="hist-dot" style="background:${color}"></div>
       <div class="hist-body2">
         <div class="hist-top">
-          <span class="hist-icon" style="font-size:14px;margin-right:4px">${icon}</span>
+          <span style="font-size:14px;margin-right:4px">${icon}</span>
           <span class="hist-cat">${e.category}</span>
-          ${e.logged_by ? `<span class="hist-by" style="margin-left:auto">${e.logged_by}</span>` : ''}
+          ${e.logged_by?`<span class="hist-by" style="margin-left:auto">${e.logged_by}</span>`:''}
         </div>
-        ${sub ? `<div class="hist-sub">${sub}</div>` : ''}
-        ${e.notes ? `<div class="hist-note">${String(e.notes).slice(0,100)}${String(e.notes).length>100?'…':''}</div>` : ''}
+        ${sub?`<div class="hist-sub">${sub}</div>`:''}
+        ${e.notes?`<div class="hist-note">${String(e.notes).slice(0,120)}${String(e.notes).length>120?'…':''}</div>`:''}
       </div>
     </div>`;
   }).join('');
@@ -731,17 +804,13 @@ function renderHistory() {
 function formatTime(t) {
   if (!t) return '';
   const [h,m] = t.split(':').map(Number);
-  const ampm = h >= 12 ? 'pm' : 'am';
-  const h12 = h % 12 || 12;
-  return `${h12}:${String(m).padStart(2,'0')}${ampm}`;
+  return `${h%12||12}:${String(m).padStart(2,'0')}${h>=12?'pm':'am'}`;
 }
 
-// ── TOAST ─────────────────────────────────────────────────
 function toast(msg) {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 2400);
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2400);
 }
 </script>
 </body>
