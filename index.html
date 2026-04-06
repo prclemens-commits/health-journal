@@ -431,27 +431,27 @@ function loggerSelectHTML() {
 function timeSectionHTML(mode='single', labels=['Time']) {
   if (mode === 'single') {
     return `<div class="form-section">
-      <div class="section-label">Time <span class="optional-tag">(optional)</span></div>
+      <div class="section-label">Time <span style="color:#e8763a;font-size:11px">*</span></div>
       <div class="time-row single"><div class="time-field">
-        <input type="time" class="time-input" id="f-time-start">
+        <input type="time" class="time-input" id="f-time-start" required>
       </div></div>
     </div>`;
   }
   if (mode === 'triple') {
     return `<div class="form-section">
-      <div class="section-label">Times</div>
+      <div class="section-label">Times <span style="color:#e8763a;font-size:11px">* at least one required</span></div>
       <div class="time-row triple">
         <div class="time-field"><div class="time-label">${labels[0]}</div><input type="time" class="time-input" id="f-time-inbed"></div>
-        <div class="time-field"><div class="time-label">${labels[1]}</div><input type="time" class="time-input" id="f-time-asleep"></div>
+        <div class="time-field"><div class="time-label">${labels[1]} *</div><input type="time" class="time-input" id="f-time-asleep" required></div>
         <div class="time-field"><div class="time-label">${labels[2]}</div><input type="time" class="time-input" id="f-time-awake"></div>
       </div>
     </div>`;
   }
   return `<div class="form-section">
-    <div class="section-label">Time</div>
+    <div class="section-label">Time <span style="color:#e8763a;font-size:11px">*</span></div>
     <div class="time-row dual">
-      <div class="time-field"><div class="time-label">${labels[0]}</div><input type="time" class="time-input" id="f-time-start"></div>
-      <div class="time-field"><div class="time-label">${labels[1]}</div><input type="time" class="time-input" id="f-time-end"></div>
+      <div class="time-field"><div class="time-label">${labels[0]} *</div><input type="time" class="time-input" id="f-time-start" required></div>
+      <div class="time-field"><div class="time-label">${labels[1]} <span class="optional-tag">(optional)</span></div><input type="time" class="time-input" id="f-time-end"></div>
     </div>
   </div>`;
 }
@@ -753,6 +753,18 @@ async function saveEntry() {
     endTime   = document.getElementById('f-time-end')?.value   || '';
   } else {
     startTime = document.getElementById('f-time-start')?.value || '';
+  }
+
+  // Validate time is entered
+  if (!startTime) {
+    const timeField = document.getElementById('f-time-start') || document.getElementById('f-time-asleep');
+    if (timeField) {
+      timeField.style.borderColor = '#e8763a';
+      timeField.focus();
+      setTimeout(() => { timeField.style.borderColor = ''; }, 2000);
+    }
+    toast('⏰ Please enter a time before saving');
+    return;
   }
 
   // Build subcategory summary
